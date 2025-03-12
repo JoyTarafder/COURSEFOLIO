@@ -20,7 +20,7 @@ function App() {
       {/* Include WelcomePopup directly */}
       <WelcomePopup
         title="Welcome to AllRounder!"
-        message="Thank you for visiting our website. Explore our courses, books, and services to enhance your skills and knowledge. Don't forget to check out the downloadable resources available in each section!"
+        message="Thank you for visiting our website. Explore our courses, books, and services to enhance your skills and knowledge. Use the search feature to find books, courses, and source code!"
       />
     </div>
   );

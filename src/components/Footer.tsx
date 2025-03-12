@@ -19,10 +19,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">AllRounder</h3>
+            <h3 className="text-xl font-bold mb-4">Course Folio</h3>
             <p className="text-gray-400 mb-4">
-              We provide high-quality web development services and educational
-              resources to help you succeed in the digital world.
+          Your one-stop destination for curated learning resources, courses, and books to help you master web development and programming skills.
             </p>
             <div className="flex space-x-4">
               <a
@@ -152,7 +151,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} AllRounder. All rights reserved.
+            &copy; {new Date().getFullYear()} Course Folio. All rights reserved.
             Developed by{" "}
             <a
               href="https://my-protfolio-jt.vercel.app/"

@@ -105,7 +105,9 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
             <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-3 rounded-full mr-4">
               {renderIcon("FaInfo", "text-white", 24)}
             </div>
-            <h3 className="text-2xl font-bold text-gray-800">Welcome to Course Folio!</h3>
+            <h3 className="text-2xl font-bold text-gray-800">
+              Welcome to Course Folio!
+            </h3>
           </div>
 
           {/* Content */}
