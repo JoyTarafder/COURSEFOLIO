@@ -19,14 +19,12 @@ const Hero: React.FC = () => {
               Hi, This is <span className="text-purple-600">Shantanu Karmaker</span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
-              Web Developer & Designer
+            An Emerging Engineering Professional & A Slow Learner
             </h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-              I'm passionate about creating beautiful, functional websites and
-              applications. With over 5 years of experience in web development,
-              I specialize in React, TypeScript, and modern CSS frameworks like
-              Tailwind. I love solving complex problems and turning ideas into
-              reality through clean, efficient code.
+            Hello and welcome to my engineering resource hub! I’m a passionate BSc student in Electrical and Electronics Engineering, dedicated to creating a comprehensive online space where study materials, projects, and a wide range of engineering books are readily available for future students. My journey in engineering has been fueled by curiosity and a drive to innovate, and over the years, I’ve gathered a wealth of knowledge through academic studies, hands-on projects, and collaborative research.
+
+           This website is my way of giving back to the academic community—providing an accessible, well-organized repository that bridges the gap between theoretical learning and practical application. 
             </p>
             <div className="flex space-x-4">
               <a
