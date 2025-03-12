@@ -1,0 +1,3 @@
+This is a sample file for download testing.
+It represents a downloadable resource from the AllRounder website.
+You can replace this with actual PDF, Word, or other file types as needed. 
