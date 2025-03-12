@@ -27,16 +27,6 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
     ) : null;
   };
 
-  // Safe localStorage getter
-  const getLocalStorageItem = (key: string): string | null => {
-    try {
-      return localStorage.getItem(key);
-    } catch (error) {
-      console.error("Error accessing localStorage:", error);
-      return null;
-    }
-  };
-
   // Safe localStorage setter
   const setLocalStorageItem = (key: string, value: string): boolean => {
     try {

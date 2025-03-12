@@ -65,7 +65,7 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <a
-              href="#"
+              href="/"
               className="text-gray-600 hover:text-purple-600 transition duration-300"
             >
               Home
@@ -150,7 +150,7 @@ const Header: React.FC = () => {
         >
           <nav className="flex flex-col space-y-4 py-4">
             <a
-              href="#"
+              href="/"
               className="text-gray-600 hover:text-purple-600 transition duration-300"
             >
               Home
