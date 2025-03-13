@@ -139,35 +139,47 @@ const Hero: React.FC = () => {
               <div className="absolute -inset-12 rounded-full border-2 border-dashed border-indigo-200 dark:border-indigo-800 animate-reverse-spin-slow"></div>
 
               {/* Profile image with glow */}
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full blur opacity-70 animate-pulse"></div>
-                <div className="relative glass rounded-full p-2">
+              <div className="relative flex justify-center">
+                {/* Enhanced gradient glow effect */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full blur-xl opacity-70 animate-pulse-slow"></div>
+                
+                {/* Hexagonal frame effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-full transform rotate-45 animate-spin-very-slow opacity-40"></div>
+                
+                <div className="relative glass rounded-full p-3 backdrop-blur-sm border border-white/20 shadow-2xl">
                   <img
                     src="https://i.ibb.co.com/Lz3Mp6Hj/480684642-2468171563542410-1655804113549530908-n.jpg"
                     alt="Profile"
-                    className="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-xl transition-transform duration-500 hover:scale-105 animate-float"
+                    className="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-indigo-500/50 animate-float mx-auto z-10"
                   />
 
-                  {/* Floating badges */}
-                  <div className="absolute -bottom-4 -right-4 glass rounded-full p-4 shadow-lg animate-float animation-delay-1000">
+                  {/* Enhanced floating badges with improved positioning and effects */}
+                  <div className="absolute -bottom-6 -right-6 glass rounded-full p-4 shadow-lg backdrop-blur-md border border-white/20 animate-float animation-delay-1000 hover:scale-110 transition-transform duration-300">
                     {renderIcon(
                       "FaCode",
-                      "text-purple-600 dark:text-purple-400",
+                      "text-purple-600 dark:text-purple-400 animate-pulse-slow",
+                      28
+                    )}
+                  </div>
+                  <div className="absolute -top-4 -left-4 glass rounded-full p-3 shadow-lg backdrop-blur-md border border-white/20 animate-float animation-delay-2000 hover:scale-110 transition-transform duration-300">
+                    {renderIcon(
+                      "FaLaptopCode",
+                      "text-indigo-600 dark:text-indigo-400 animate-pulse-slow",
                       24
                     )}
                   </div>
-                  <div className="absolute -top-2 -left-2 glass rounded-full p-3 shadow-lg animate-float animation-delay-2000">
-                    {renderIcon(
-                      "FaLaptopCode",
-                      "text-indigo-600 dark:text-indigo-400",
-                      20
-                    )}
-                  </div>
-                  <div className="absolute top-1/2 -right-6 glass rounded-full p-3 shadow-lg animate-float animation-delay-3000">
+                  <div className="absolute top-1/2 -right-8 glass rounded-full p-3 shadow-lg backdrop-blur-md border border-white/20 animate-float animation-delay-3000 hover:scale-110 transition-transform duration-300">
                     {renderIcon(
                       "FaMicrochip",
-                      "text-pink-600 dark:text-pink-400",
-                      20
+                      "text-pink-600 dark:text-pink-400 animate-pulse-slow",
+                      24
+                    )}
+                  </div>
+                  <div className="absolute top-1/4 -left-8 glass rounded-full p-3 shadow-lg backdrop-blur-md border border-white/20 animate-float animation-delay-4000 hover:scale-110 transition-transform duration-300">
+                    {renderIcon(
+                      "FaRocket",
+                      "text-blue-600 dark:text-blue-400 animate-pulse-slow",
+                      24
                     )}
                   </div>
                 </div>
