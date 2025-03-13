@@ -7,7 +7,7 @@ interface WelcomePopupProps {
 }
 
 const WelcomePopup: React.FC<WelcomePopupProps> = ({
-  title = "Welcome to AllRounder!",
+  title = "Welcome to Course Folio!",
   message = "Thank you for visiting our website. Explore our courses, books, and services to enhance your skills and knowledge.",
 }) => {
   const [isVisible, setIsVisible] = useState(false);

@@ -57,8 +57,8 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-gray-800">
-              AllRounder
+            <a href="/" className="text-xl font-bold text-gray-800">
+              Course Folio
             </a>
           </div>
 

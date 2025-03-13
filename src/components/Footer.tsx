@@ -21,7 +21,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Course Folio</h3>
             <p className="text-gray-400 mb-4">
-          Your one-stop destination for curated learning resources, courses, and books to help you master web development and programming skills.
+              Your one-stop destination for curated learning resources, courses,
+              and books to help you master web development and programming
+              skills.
             </p>
             <div className="flex space-x-4">
               <a
@@ -122,7 +124,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 {renderIcon("FaEnvelope", "text-purple-500 mr-3")}
-                <span className="text-gray-400">info@allrounder.com</span>
+                <span className="text-gray-400">info@coursefolio.com</span>
               </li>
             </ul>
           </div>

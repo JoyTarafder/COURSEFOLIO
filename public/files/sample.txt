@@ -1,3 +1,3 @@
 This is a sample file for download testing.
-It represents a downloadable resource from the AllRounder website.
+It represents a downloadable resource from the Course Folio website.
 You can replace this with actual PDF, Word, or other file types as needed. 
