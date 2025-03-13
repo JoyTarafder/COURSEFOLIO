@@ -101,10 +101,13 @@ const Header: React.FC = () => {
             {/* Search Button */}
             <button
               onClick={toggleSearch}
-              className="text-gray-600 hover:text-purple-600 transition duration-300"
+              className="text-gray-600 hover:text-purple-600 transition duration-300 relative group"
               aria-label="Search"
             >
               {renderIcon("FaSearch")}
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                Search
+              </span>
             </button>
 
             {/* Mobile Menu Button */}
@@ -120,26 +123,35 @@ const Header: React.FC = () => {
 
         {/* Search Bar */}
         <div
-          className={`search-container overflow-hidden transition-all duration-300 ${
-            isSearchOpen ? "h-16 opacity-100 mb-4" : "h-0 opacity-0"
+          className={`search-container overflow-hidden transition-all duration-500 ${
+            isSearchOpen ? "h-20 opacity-100 mb-4" : "h-0 opacity-0"
           }`}
         >
-          <form onSubmit={handleSearch} className="flex items-center">
-            <input
-              id="search-input"
-              type="text"
-              placeholder="Search for books, courses, or source code..."
-              className="w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button
-              type="submit"
-              className="bg-purple-600 text-white p-2 rounded-r-md hover:bg-purple-700 transition duration-300"
+          <div className="bg-gray-100 p-4 rounded-lg shadow-inner">
+            <form
+              onSubmit={handleSearch}
+              className="flex items-center relative"
             >
-              {renderIcon("FaSearch", "text-white")}
-            </button>
-          </form>
+              <div className="absolute left-4 text-gray-400">
+                {renderIcon("FaSearch")}
+              </div>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Search for books, courses, or source code..."
+                className="w-full pl-12 pr-4 py-3 bg-white border-0 rounded-l-full rounded-r-full focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm transition-all duration-300"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="absolute right-0 h-full px-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-r-full hover:from-purple-700 hover:to-indigo-700 transition duration-300 flex items-center justify-center"
+              >
+                <span className="mr-2 hidden sm:inline">Search</span>
+                {renderIcon("FaArrowRight", "text-white")}
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
