@@ -1,17 +1,45 @@
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
+import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
+import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
+import { FaPhone } from "@react-icons/all-files/fa/FaPhone";
+import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
 import React from "react";
-import * as FaIcons from "react-icons/fa";
 
 const Footer: React.FC = () => {
-  const renderIcon = (
-    iconName: string,
-    className: string = "",
-    size: number = 20
-  ) => {
-    const IconComponent = FaIcons[iconName as keyof typeof FaIcons];
-    return IconComponent ? (
-      <IconComponent className={className} size={size} />
-    ) : null;
-  };
+  const socialLinks = [
+    { icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  ];
+
+  const quickLinks = [
+    { href: "#about", text: "About Me" },
+    { href: "#courses", text: "Courses" },
+    { href: "#books", text: "Books" },
+    { href: "#cards", text: "Services" },
+    { href: "#contact", text: "Contact" },
+  ];
+
+  const contactInfo = [
+    {
+      icon: FaMapMarkerAlt,
+      text: "123 Web Dev Street, Coding City, 10001",
+      className: "text-purple-500 mt-1 mr-3",
+    },
+    {
+      icon: FaPhone,
+      text: "+1 (555) 123-4567",
+      className: "text-purple-500 mr-3",
+    },
+    {
+      icon: FaEnvelope,
+      text: "info@coursefolio.com",
+      className: "text-purple-500 mr-3",
+    },
+  ];
 
   return (
     <footer id="contact" className="bg-gray-900 text-white">
@@ -26,38 +54,18 @@ const Footer: React.FC = () => {
               skills.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition duration-300"
-              >
-                {renderIcon("FaFacebook")}
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition duration-300"
-              >
-                {renderIcon("FaTwitter")}
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition duration-300"
-              >
-                {renderIcon("FaInstagram")}
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition duration-300"
-              >
-                {renderIcon("FaLinkedin")}
-              </a>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -65,46 +73,16 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  About Me
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#courses"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  Courses
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#books"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  Books
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#cards"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  Contact
-                </a>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition duration-300"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -112,20 +90,12 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Info</h3>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                {renderIcon("FaMapMarkerAlt", "text-purple-500 mt-1 mr-3")}
-                <span className="text-gray-400">
-                  123 Web Dev Street, Coding City, 10001
-                </span>
-              </li>
-              <li className="flex items-center">
-                {renderIcon("FaPhone", "text-purple-500 mr-3")}
-                <span className="text-gray-400">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center">
-                {renderIcon("FaEnvelope", "text-purple-500 mr-3")}
-                <span className="text-gray-400">info@coursefolio.com</span>
-              </li>
+              {contactInfo.map((info, index) => (
+                <li key={index} className="flex items-start">
+                  <info.icon className={info.className} size={20} />
+                  <span className="text-gray-400">{info.text}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

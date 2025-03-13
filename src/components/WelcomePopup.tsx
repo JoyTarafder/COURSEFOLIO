@@ -1,5 +1,8 @@
+import { FaArrowRight } from "@react-icons/all-files/fa/FaArrowRight";
+import { FaCheck } from "@react-icons/all-files/fa/FaCheck";
+import { FaInfo } from "@react-icons/all-files/fa/FaInfo";
+import { FaTimes } from "@react-icons/all-files/fa/FaTimes";
 import React, { useEffect, useState } from "react";
-import * as FaIcons from "react-icons/fa";
 
 interface WelcomePopupProps {
   title?: string;
@@ -13,18 +16,6 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [dontShowAgain, setDontShowAgain] = useState(false);
-
-  // Render icon helper function
-  const renderIcon = (
-    iconName: string,
-    className: string = "",
-    size: number = 20
-  ) => {
-    const IconComponent = FaIcons[iconName as keyof typeof FaIcons];
-    return IconComponent ? (
-      <IconComponent className={className} size={size} />
-    ) : null;
-  };
 
   // Safe localStorage getter
   const getLocalStorageItem = (key: string): string | null => {
@@ -106,14 +97,14 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition duration-150 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-full p-2 shadow-md z-10 hover:shadow-lg transform hover:scale-105 hover:rotate-12"
             aria-label="Close"
           >
-            {renderIcon("FaTimes")}
+            <FaTimes />
           </button>
 
           <div className="p-8">
             {/* Header */}
             <div className="flex items-center mb-6 animate-fade-in">
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 rounded-full mr-5 shadow-lg animate-pulse">
-                {renderIcon("FaInfo", "text-white", 24)}
+                <FaInfo className="text-white" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white gradient-text-shine">
                 {title}
@@ -143,7 +134,9 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
                       : "border-gray-300 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-500 bg-white dark:bg-gray-700"
                   }`}
                 >
-                  {dontShowAgain && renderIcon("FaCheck", "text-white", 12)}
+                  {dontShowAgain && (
+                    <FaCheck className="text-white" size={12} />
+                  )}
                 </div>
                 <span className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white transition-colors duration-300">
                   Don't show again
@@ -155,7 +148,7 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({
               >
                 <span className="relative z-10">Get Started</span>
                 <span className="ml-2 relative z-10 transform group-hover:translate-x-1 transition-transform duration-300">
-                  {renderIcon("FaArrowRight", "", 14)}
+                  <FaArrowRight size={14} />
                 </span>
               </button>
             </div>
