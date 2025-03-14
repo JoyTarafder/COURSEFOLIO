@@ -21,7 +21,7 @@ const books: Book[] = [
     rating: 4.5,
     description:
       "A modern introduction to programming, teaching the essential fundamentals of JavaScript.",
-    downloadUrl: "/files/sample.txt",
+    downloadUrl: "/files/book-sample.pdf",
     sampleType: "Sample Chapter",
   },
   {
@@ -33,7 +33,7 @@ const books: Book[] = [
     rating: 5,
     description:
       "A handbook of agile software craftsmanship that helps you write better, more maintainable code.",
-    downloadUrl: "/files/sample.txt",
+    downloadUrl: "/files/code-examples.pdf",
     sampleType: "Code Examples",
   },
   {
@@ -45,7 +45,7 @@ const books: Book[] = [
     rating: 4,
     description:
       "Learn how to build efficient user interfaces with React by reusing code and creating reusable components.",
-    downloadUrl: "/files/sample.txt",
+    downloadUrl: "/files/book-sample.pdf",
     sampleType: "Sample Chapter",
   },
   {
@@ -57,7 +57,7 @@ const books: Book[] = [
     rating: 4.5,
     description:
       "Enhance your JavaScript skills by learning TypeScript, a typed superset of JavaScript that builds on its syntax.",
-    downloadUrl: "/files/sample.txt",
+    downloadUrl: "/files/code-examples.pdf",
     sampleType: "Code Examples",
   },
   {
@@ -69,9 +69,9 @@ const books: Book[] = [
     rating: 4.5,
     description:
       "Enhance your JavaScript skills by learning TypeScript, a typed superset of JavaScript that builds on its syntax.",
-    downloadUrl: "/files/sample.txt",
+    downloadUrl: "/files/code-examples.pdf",
     sampleType: "Code Examples",
-  }
+  },
 ];
 
 const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
