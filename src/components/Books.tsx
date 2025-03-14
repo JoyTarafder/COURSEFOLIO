@@ -60,6 +60,18 @@ const books: Book[] = [
     downloadUrl: "/files/sample.txt",
     sampleType: "Code Examples",
   },
+  {
+    id: 5,
+    title: "Learning TypeScript",
+    author: "Josh Goldberg",
+    coverImage:
+      "https://m.media-amazon.com/images/I/51vKIX5W-QL._SX379_BO1,204,203,200_.jpg",
+    rating: 4.5,
+    description:
+      "Enhance your JavaScript skills by learning TypeScript, a typed superset of JavaScript that builds on its syntax.",
+    downloadUrl: "/files/sample.txt",
+    sampleType: "Code Examples",
+  }
 ];
 
 const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
