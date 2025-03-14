@@ -10,6 +10,7 @@ interface CourseFile {
   lastUpdated: string;
   size: string;
   downloads: number;
+  color?: string;
 }
 
 const courseFiles: CourseFile[] = [
@@ -23,6 +24,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "June 15, 2023",
     size: "2.5 MB",
     downloads: 1234,
+    color: "from-red-500 to-orange-500",
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "July 1, 2023",
     size: "1.8 MB",
     downloads: 856,
+    color: "from-blue-500 to-cyan-500",
   },
   {
     id: 3,
@@ -55,6 +58,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "July 5, 2023",
     size: "1.5 MB",
     downloads: 567,
+    color: "from-green-500 to-teal-500",
   },
   {
     id: 5,
@@ -66,6 +70,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "July 5, 2023",
     size: "1.5 MB",
     downloads: 567,
+    color: "from-purple-500 to-purple-600",
   },
   {
     id: 6,
@@ -77,6 +82,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "July 5, 2023",
     size: "1.5 MB",
     downloads: 567,
+    color: "from-yellow-500 to-amber-500",
   },
 ];
 
@@ -118,18 +124,19 @@ const Courses: React.FC = () => {
     ) : null;
   };
 
-  const getFileColor = (fileType: string) => {
-    switch (fileType) {
-      case "pdf":
-        return "from-red-500 to-pink-500";
-      case "word":
-        return "from-blue-500 to-indigo-500";
-      case "excel":
-        return "from-green-500 to-emerald-500";
-      default:
-        return "from-purple-500 to-indigo-500";
-    }
-  };
+  const getFileColor = (fileType: string, color?: string) => {
+  if (color) return color; // Use custom color if provided
+  switch (fileType) {
+    case "pdf":
+      return "from-red-500 to-pink-500";
+    case "word":
+      return "from-blue-500 to-indigo-500";
+    case "excel":
+      return "from-green-500 to-emerald-500";
+    default:
+      return "from-purple-500 to-indigo-500";
+  }
+};
 
   const formatDownloads = (downloads: number) => {
     if (downloads >= 1000) {
