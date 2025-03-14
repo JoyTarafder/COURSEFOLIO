@@ -26,17 +26,17 @@ const Footer: React.FC = () => {
   const contactInfo = [
     {
       icon: FaMapMarkerAlt,
-      text: "123 Web Dev Street, Coding City, 10001",
+      text: "Nikunjo 2, Khilkhet, Dhaka, Bangladesh",
       className: "text-purple-500 mt-1 mr-3",
     },
     {
       icon: FaPhone,
-      text: "+1 (555) 123-4567",
+      text: "+8801718400180",
       className: "text-purple-500 mr-3",
     },
     {
       icon: FaEnvelope,
-      text: "info@coursefolio.com",
+      text: "rsk.edu960@gmail.com",
       className: "text-purple-500 mr-3",
     },
   ];
@@ -50,8 +50,7 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Course Folio</h3>
             <p className="text-gray-400 mb-4">
               Your one-stop destination for curated learning resources, courses,
-              and books to help you master web development and programming
-              skills.
+              and books to help you master in Electrical Engineering.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
