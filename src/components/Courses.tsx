@@ -15,9 +15,9 @@ interface CourseFile {
 const courseFiles: CourseFile[] = [
   {
     id: 1,
-    title: "Web Development Fundamentals",
+    title: "Analog Electronics",
     description:
-      "Learn the basics of HTML, CSS, and JavaScript in this comprehensive guide.",
+      "Learn the basics of analog electronics and build circuits from scratch.",
     fileType: "pdf",
     downloadUrl: "/files/web-development.pdf",
     lastUpdated: "June 15, 2023",
@@ -26,9 +26,9 @@ const courseFiles: CourseFile[] = [
   },
   {
     id: 2,
-    title: "React for Beginners",
+    title: "Digital Logic & Circuits",
     description:
-      "Start your journey with React.js and build interactive user interfaces.",
+      "Understand the fundamentals of digital logic and design circuits.",
     fileType: "pdf",
     downloadUrl: "/files/react-beginners.pdf",
     lastUpdated: "July 1, 2023",
@@ -37,8 +37,8 @@ const courseFiles: CourseFile[] = [
   },
   {
     id: 3,
-    title: "Advanced CSS Techniques",
-    description: "Master modern CSS with flexbox, grid, and animations.",
+    title: "Modern Control Systems",
+    description: "Explore the principles of modern control systems.",
     fileType: "pdf",
     downloadUrl: "/files/advanced-css.pdf",
     lastUpdated: "June 28, 2023",
@@ -47,9 +47,31 @@ const courseFiles: CourseFile[] = [
   },
   {
     id: 4,
-    title: "TypeScript Essentials",
+    title: "Signal & Linear Systems",
     description:
-      "Enhance your JavaScript with static typing and advanced features.",
+      "Learn about signals and linear systems and their applications.",
+    fileType: "pdf",
+    downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
+    lastUpdated: "July 5, 2023",
+    size: "1.5 MB",
+    downloads: 567,
+  },
+  {
+    id: 5,
+    title: "Industrial Electronics & Drives",
+    description:
+      "Study the concepts of industrial electronics and drives in detail.",
+    fileType: "pdf",
+    downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
+    lastUpdated: "July 5, 2023",
+    size: "1.5 MB",
+    downloads: 567,
+  },
+  {
+    id: 6,
+    title: "VLSI",
+    description:
+      "Learn about the design and implementation of VLSI circuits.",
     fileType: "pdf",
     downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
     lastUpdated: "July 5, 2023",
