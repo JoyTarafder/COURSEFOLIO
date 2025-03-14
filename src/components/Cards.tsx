@@ -69,16 +69,16 @@ const cards: Card[] = [
   },
   {
     id: 5,
-    title: "Full-Stack Development",
+    title: "Principal of Power System",
     description:
-      "End-to-end solutions covering both frontend and backend development needs.",
+      "Detailed explanation of the principles of power systems and their applications.",
     iconName: "FaLaptopCode",
     color: "from-yellow-500 to-yellow-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["Node.js", "Express", "MongoDB", "React"],
-    lastUpdated: "July 3, 2023",
-    size: "4.5 MB",
+    downloadUrl: "/files/Principles of Power System -- V K Mehta, Rohit Mehta.pdf",
+    fileType: "BOOK",
+    technologies: ["Transmission Line", "Bundle Conductor", "Types of Insulator", "Voltage Distribution"],
+    lastUpdated: "March 14, 2025",
+    size: "35 MB",
   },
   {
     id: 6,
