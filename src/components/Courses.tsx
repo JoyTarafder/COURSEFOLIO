@@ -20,11 +20,11 @@ const courseFiles: CourseFile[] = [
     description:
       "Learn the basics of analog electronics and build circuits from scratch.",
     fileType: "pdf",
-    downloadUrl: "/files/web-development.pdf",
+    downloadUrl: "/files/EM2_Exp-6_23-50639-1.pdf",
     lastUpdated: "June 15, 2023",
     size: "2.5 MB",
     downloads: 1234,
-    color: "from-red-500 to-orange-500",
+    color: "from-cyan-500 to-orange-500",
   },
   {
     id: 2,
@@ -47,6 +47,7 @@ const courseFiles: CourseFile[] = [
     lastUpdated: "June 28, 2023",
     size: "3.2 MB",
     downloads: 2156,
+    color: "from-red-400 to-violet-500",
   },
   {
     id: 4,
@@ -124,19 +125,22 @@ const Courses: React.FC = () => {
     ) : null;
   };
 
-  const getFileColor = (fileType: string, color?: string) => {
-  if (color) return color; // Use custom color if provided
-  switch (fileType) {
-    case "pdf":
-      return "from-red-500 to-pink-500";
-    case "word":
-      return "from-blue-500 to-indigo-500";
-    case "excel":
-      return "from-green-500 to-emerald-500";
-    default:
-      return "from-purple-500 to-indigo-500";
-  }
-};
+  const getFileColor = (fileType: string, fileId: number, color?: string) => {
+    if (color) return color; // Use custom color if provided
+    
+    // Fallback colors based on fileId when no custom color is provided
+    const idBasedColors = {
+      1: "from-red-500 to-orange-500",
+      2: "from-blue-500 to-cyan-500",
+      3: "from-indigo-500 to-violet-500",
+      4: "from-green-500 to-teal-500",
+      5: "from-purple-500 to-purple-600",
+      6: "from-yellow-500 to-amber-500"
+    };
+    
+    return idBasedColors[fileId as keyof typeof idBasedColors] || 
+           idBasedColors[1]; // Default to first color if ID not found
+  };
 
   const formatDownloads = (downloads: number) => {
     if (downloads >= 1000) {
@@ -192,14 +196,18 @@ const Courses: React.FC = () => {
             >
               <div
                 className={`h-2 bg-gradient-to-r ${getFileColor(
-                  file.fileType
+                  file.fileType,
+                  file.id,
+                  file.color
                 )}`}
               ></div>
               <div className="p-8">
                 <div className="flex items-start space-x-6">
                   <div
                     className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${getFileColor(
-                      file.fileType
+                      file.fileType,
+                      file.id,
+                      file.color
                     )} text-white shadow-lg transform transition-transform duration-500 ${
                       hoveredFile === file.id ? "scale-110 rotate-3" : ""
                     }`}
@@ -243,7 +251,9 @@ const Courses: React.FC = () => {
                     href={file.downloadUrl}
                     download
                     className={`inline-flex items-center px-6 py-3 bg-gradient-to-r ${getFileColor(
-                      file.fileType
+                      file.fileType,
+                      file.id,
+                      file.color
                     )} text-white rounded-xl font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg group`}
                   >
                     {renderIcon(
