@@ -1,91 +1,10 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
+import { courseFiles } from "../data/courseFilesData";
 
-interface CourseFile {
-  id: number;
-  title: string;
-  description: string;
-  fileType: "pdf" | "word" | "excel";
-  downloadUrl: string;
-  lastUpdated: string;
-  size: string;
-  downloads: number;
-  color?: string;
+interface CoursesProps {
+  navigateTo: (page: string) => void;
 }
-
-const courseFiles: CourseFile[] = [
-  {
-    id: 1,
-    title: "Analog Electronics",
-    description:
-      "Learn the basics of analog electronics and build circuits from scratch.",
-    fileType: "pdf",
-    downloadUrl: "/files/EM2_Exp-6_23-50639-1.pdf",
-    lastUpdated: "June 15, 2023",
-    size: "2.5 MB",
-    downloads: 1234,
-    color: "from-cyan-500 to-orange-500",
-  },
-  {
-    id: 2,
-    title: "Digital Logic & Circuits",
-    description:
-      "Understand the fundamentals of digital logic and design circuits.",
-    fileType: "pdf",
-    downloadUrl: "/files/react-beginners.pdf",
-    lastUpdated: "July 1, 2023",
-    size: "1.8 MB",
-    downloads: 856,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    id: 3,
-    title: "Modern Control Systems",
-    description: "Explore the principles of modern control systems.",
-    fileType: "pdf",
-    downloadUrl: "/files/advanced-css.pdf",
-    lastUpdated: "June 28, 2023",
-    size: "3.2 MB",
-    downloads: 2156,
-    color: "from-red-400 to-violet-500",
-  },
-  {
-    id: 4,
-    title: "Signal & Linear Systems",
-    description:
-      "Learn about signals and linear systems and their applications.",
-    fileType: "pdf",
-    downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
-    lastUpdated: "July 5, 2023",
-    size: "1.5 MB",
-    downloads: 567,
-    color: "from-green-500 to-teal-500",
-  },
-  {
-    id: 5,
-    title: "Industrial Electronics & Drives",
-    description:
-      "Study the concepts of industrial electronics and drives in detail.",
-    fileType: "pdf",
-    downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
-    lastUpdated: "July 5, 2023",
-    size: "1.5 MB",
-    downloads: 567,
-    color: "from-purple-500 to-purple-600",
-  },
-  {
-    id: 6,
-    title: "VLSI",
-    description:
-      "Learn about the design and implementation of VLSI circuits.",
-    fileType: "pdf",
-    downloadUrl: "/files/ami-ekjon-salsman-bangla.pdf",
-    lastUpdated: "July 5, 2023",
-    size: "1.5 MB",
-    downloads: 567,
-    color: "from-yellow-500 to-amber-500",
-  },
-];
 
 const FileIcon: React.FC<{ fileType: string }> = ({ fileType }) => {
   const renderIcon = (
@@ -111,7 +30,7 @@ const FileIcon: React.FC<{ fileType: string }> = ({ fileType }) => {
   }
 };
 
-const Courses: React.FC = () => {
+const Courses: React.FC<CoursesProps> = ({ navigateTo }) => {
   const [hoveredFile, setHoveredFile] = useState<number | null>(null);
 
   const renderIcon = (
@@ -127,7 +46,7 @@ const Courses: React.FC = () => {
 
   const getFileColor = (fileType: string, fileId: number, color?: string) => {
     if (color) return color; // Use custom color if provided
-    
+
     // Fallback colors based on fileId when no custom color is provided
     const idBasedColors = {
       1: "from-red-500 to-orange-500",
@@ -135,11 +54,12 @@ const Courses: React.FC = () => {
       3: "from-indigo-500 to-violet-500",
       4: "from-green-500 to-teal-500",
       5: "from-purple-500 to-purple-600",
-      6: "from-yellow-500 to-amber-500"
+      6: "from-yellow-500 to-amber-500",
     };
-    
-    return idBasedColors[fileId as keyof typeof idBasedColors] || 
-           idBasedColors[1]; // Default to first color if ID not found
+
+    return (
+      idBasedColors[fileId as keyof typeof idBasedColors] || idBasedColors[1]
+    ); // Default to first color if ID not found
   };
 
   const formatDownloads = (downloads: number) => {
@@ -186,7 +106,7 @@ const Courses: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {courseFiles.map((file, index) => (
+          {courseFiles.slice(0, 4).map((file, index) => (
             <div
               key={file.id}
               className="glass bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in"
@@ -270,8 +190,8 @@ const Courses: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in animation-delay-700">
-          <a
-            href="/courses"
+          <button
+            onClick={() => navigateTo("courses")}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg group"
           >
             <span>Browse All Course Files</span>
@@ -280,7 +200,7 @@ const Courses: React.FC = () => {
               "ml-2 group-hover:translate-x-1 transition-transform",
               16
             )}
-          </a>
+          </button>
         </div>
       </div>
     </section>
