@@ -386,5 +386,5 @@ For support or questions, contact the developer:
 
 ---
 
-_Documentation created: Feb 2025_
-_Last updated: March 2025_
+_Documentation created: June 2023_
+_Last updated: October 2023_
