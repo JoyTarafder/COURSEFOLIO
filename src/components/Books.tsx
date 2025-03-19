@@ -1,78 +1,10 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
+import { books } from "../data/booksData";
 
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  coverImage: string;
-  rating: number;
-  description: string;
-  downloadUrl: string;
-  sampleType: string;
+interface BooksProps {
+  navigateTo: (page: string) => void;
 }
-
-const books: Book[] = [
-  {
-    id: 1,
-    title: "Eloquent JavaScript",
-    author: "Marijn Haverbeke",
-    coverImage: "https://eloquentjavascript.net/img/cover.jpg",
-    rating: 4.5,
-    description:
-      "A modern introduction to programming, teaching the essential fundamentals of JavaScript.",
-    downloadUrl: "/files/book-sample.pdf",
-    sampleType: "Sample Chapter",
-  },
-  {
-    id: 2,
-    title: "Clean Code",
-    author: "Robert C. Martin",
-    coverImage:
-      "https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
-    rating: 5,
-    description:
-      "A handbook of agile software craftsmanship that helps you write better, more maintainable code.",
-    downloadUrl: "/files/code-examples.pdf",
-    sampleType: "Code Examples",
-  },
-  {
-    id: 3,
-    title: "React Design Patterns",
-    author: "Carlos Santana Roldán",
-    coverImage:
-      "https://m.media-amazon.com/images/I/41D9mMAUxjL._SX404_BO1,204,203,200_.jpg",
-    rating: 4,
-    description:
-      "Learn how to build efficient user interfaces with React by reusing code and creating reusable components.",
-    downloadUrl: "/files/book-sample.pdf",
-    sampleType: "Sample Chapter",
-  },
-  {
-    id: 4,
-    title: "Learning TypeScript",
-    author: "Josh Goldberg",
-    coverImage:
-      "https://m.media-amazon.com/images/I/51vKIX5W-QL._SX379_BO1,204,203,200_.jpg",
-    rating: 4.5,
-    description:
-      "Enhance your JavaScript skills by learning TypeScript, a typed superset of JavaScript that builds on its syntax.",
-    downloadUrl: "/files/code-examples.pdf",
-    sampleType: "Code Examples",
-  },
-  {
-    id: 5,
-    title: "Learning TypeScript",
-    author: "Josh Goldberg",
-    coverImage:
-      "https://m.media-amazon.com/images/I/51vKIX5W-QL._SX379_BO1,204,203,200_.jpg",
-    rating: 4.5,
-    description:
-      "Enhance your JavaScript skills by learning TypeScript, a typed superset of JavaScript that builds on its syntax.",
-    downloadUrl: "/files/code-examples.pdf",
-    sampleType: "Code Examples",
-  },
-];
 
 const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
   const renderIcon = (
@@ -109,7 +41,7 @@ const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
   return <div className="flex space-x-1">{stars}</div>;
 };
 
-const Books: React.FC = () => {
+const Books: React.FC<BooksProps> = ({ navigateTo }) => {
   const [hoveredBook, setHoveredBook] = useState<number | null>(null);
 
   const renderIcon = (
@@ -159,7 +91,7 @@ const Books: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {books.map((book, index) => (
+          {books.slice(0, 4).map((book, index) => (
             <div
               key={book.id}
               className="glass bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in"
@@ -240,8 +172,8 @@ const Books: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in animation-delay-700">
-          <a
-            href="/books"
+          <button
+            onClick={() => navigateTo("books")}
             className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg group"
           >
             <span>Browse All Books</span>
@@ -250,7 +182,7 @@ const Books: React.FC = () => {
               "ml-2 group-hover:translate-x-1 transition-transform",
               16
             )}
-          </a>
+          </button>
         </div>
       </div>
     </section>

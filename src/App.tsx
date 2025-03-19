@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import AllBooks from "./components/AllBooks";
 import AllCourseFiles from "./components/AllCourseFiles";
 import Books from "./components/Books";
 import Cards from "./components/Cards";
@@ -17,6 +18,8 @@ function App() {
   // Function to navigate between pages
   const navigateTo = (page: string) => {
     setCurrentPage(page);
+    // Scroll to top when navigating between pages
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -27,7 +30,7 @@ function App() {
             <Header />
             <Hero />
             <Courses navigateTo={navigateTo} />
-            <Books />
+            <Books navigateTo={navigateTo} />
             <Cards />
             <Footer />
 
@@ -41,6 +44,12 @@ function App() {
           <>
             <Header />
             <AllCourseFiles navigateTo={navigateTo} />
+            <Footer />
+          </>
+        ) : currentPage === "books" ? (
+          <>
+            <Header />
+            <AllBooks navigateTo={navigateTo} />
             <Footer />
           </>
         ) : null}
