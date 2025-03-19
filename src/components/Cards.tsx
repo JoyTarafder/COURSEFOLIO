@@ -22,7 +22,7 @@ const Cards: React.FC<CardsProps> = ({ navigateTo }) => {
 
   return (
     <section
-      id="cards"
+      id="codes"
       className="py-24 bg-gradient-to-b from-white to-indigo-50/30 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden"
     >
       {/* Decorative elements */}

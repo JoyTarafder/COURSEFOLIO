@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      const sections = ["home", "courses", "books", "services", "contact"];
+      const sections = ["home", "courses", "books", "code", "contact"];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
     { href: "/", label: "Home", id: "home", icon: "FaHome" },
     { href: "#courses", label: "Courses", id: "courses", icon: "FaBook" },
     { href: "#books", label: "Books", id: "books", icon: "FaBookOpen" },
-    { href: "#services", label: "Services", id: "services", icon: "FaCogs" },
+    { href: "#codes", label: "Code", id: "codes", icon: "FaCode" },
     { href: "#contact", label: "Contact", id: "contact", icon: "FaEnvelope" },
   ];
 
