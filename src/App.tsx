@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AllBooks from "./components/AllBooks";
+import AllCards from "./components/AllCards";
 import AllCourseFiles from "./components/AllCourseFiles";
 import Books from "./components/Books";
 import Cards from "./components/Cards";
@@ -31,7 +32,7 @@ function App() {
             <Hero />
             <Courses navigateTo={navigateTo} />
             <Books navigateTo={navigateTo} />
-            <Cards />
+            <Cards navigateTo={navigateTo} />
             <Footer />
 
             {/* Include WelcomePopup directly */}
@@ -50,6 +51,12 @@ function App() {
           <>
             <Header />
             <AllBooks navigateTo={navigateTo} />
+            <Footer />
+          </>
+        ) : currentPage === "source-code" ? (
+          <>
+            <Header />
+            <AllCards navigateTo={navigateTo} />
             <Footer />
           </>
         ) : null}

@@ -1,101 +1,12 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
+import { cards } from "../data/cardsData";
 
-interface Card {
-  id: number;
-  title: string;
-  description: string;
-  iconName: string;
-  color: string;
-  downloadUrl: string;
-  fileType: string;
-  technologies: string[];
-  lastUpdated: string;
-  size: string;
+interface CardsProps {
+  navigateTo: (page: string) => void;
 }
 
-const cards: Card[] = [
-  {
-    id: 1,
-    title: "Web Development",
-    description:
-      "Create responsive and dynamic websites using the latest technologies and frameworks.",
-    iconName: "FaCode",
-    color: "from-blue-500 to-blue-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["HTML5", "CSS3", "JavaScript", "React"],
-    lastUpdated: "July 5, 2023",
-    size: "2.8 MB",
-  },
-  {
-    id: 2,
-    title: "UI/UX Design",
-    description:
-      "Design beautiful user interfaces with a focus on user experience and accessibility.",
-    iconName: "FaPalette",
-    color: "from-purple-500 to-purple-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["Figma", "Adobe XD", "Tailwind CSS"],
-    lastUpdated: "June 28, 2023",
-    size: "1.5 MB",
-  },
-  {
-    id: 3,
-    title: "Mobile Development",
-    description:
-      "Build cross-platform mobile applications that work seamlessly on iOS and Android.",
-    iconName: "FaMobile",
-    color: "from-green-500 to-green-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["React Native", "Flutter", "Firebase"],
-    lastUpdated: "July 1, 2023",
-    size: "3.2 MB",
-  },
-  {
-    id: 4,
-    title: "Performance Optimization",
-    description:
-      "Optimize your applications for speed, efficiency, and better user experience.",
-    iconName: "FaRocket",
-    color: "from-red-500 to-red-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["Webpack", "Lighthouse", "PWA"],
-    lastUpdated: "June 25, 2023",
-    size: "1.8 MB",
-  },
-  {
-    id: 5,
-    title: "Principal of Power System",
-    description:
-      "Detailed explanation of the principles of power systems and their applications.",
-    iconName: "FaLaptopCode",
-    color: "from-yellow-500 to-yellow-600",
-    downloadUrl: "/files/Principles of Power System -- V K Mehta, Rohit Mehta.pdf",
-    fileType: "BOOK",
-    technologies: ["Transmission Line", "Bundle Conductor", "Types of Insulator", "Voltage Distribution"],
-    lastUpdated: "March 14, 2025",
-    size: "35 MB",
-  },
-  {
-    id: 6,
-    title: "Analytics Integration",
-    description:
-      "Implement analytics to track user behavior and improve your application.",
-    iconName: "FaChartLine",
-    color: "from-indigo-500 to-indigo-600",
-    downloadUrl: "/files/source-code.pdf",
-    fileType: "Source Code",
-    technologies: ["Google Analytics", "Mixpanel", "Segment"],
-    lastUpdated: "June 30, 2023",
-    size: "2.1 MB",
-  },
-];
-
-const Cards: React.FC = () => {
+const Cards: React.FC<CardsProps> = ({ navigateTo }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const renderIcon = (
@@ -146,7 +57,7 @@ const Cards: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((card, index) => (
+          {cards.slice(0, 3).map((card, index) => (
             <div
               key={card.id}
               className="glass bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in"
@@ -231,8 +142,8 @@ const Cards: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in animation-delay-700">
-          <a
-            href="/source-code"
+          <button
+            onClick={() => navigateTo("source-code")}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg group"
           >
             <span>Browse All Source Code</span>
@@ -241,7 +152,7 @@ const Cards: React.FC = () => {
               "ml-2 group-hover:translate-x-1 transition-transform",
               16
             )}
-          </a>
+          </button>
         </div>
       </div>
     </section>
